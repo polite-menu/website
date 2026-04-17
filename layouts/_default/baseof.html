@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{- with .Title | default .Site.Title }}
+  <title>Polite Menu - {{ . }}</title>
+  <meta property="og:title" content="{{ . }}">
+{{- end }}
+{{- with or .Description .Params.subtitle .Summary .Site.Params.description }}
+  <meta name="description" content="{{ . }}">
+  <meta property="og:description" content="{{ . }}">
+{{- end }}
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/polite-menu-logo-128x128.png?v1">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+	<header>
+	  <div class="container header-inner">
+		<a href="https://politemenu.ca" class="site-logo">polite<span>.menu</span></a>
+		<a href="https://polite.menu" class="login-btn">Login</a>
+	  </div>
+	</header>
+	{{- block "main" . }}{{- end }}
+	<footer>
+	  <div class="container">
+		<div class="footer-inner">
+		  <span class="footer-logo">Made in Canada</span>
+		  <span class="footer-note"><a href="/legal/terms/">Terms of Service</a> and <a href="/legal/privacy/">Privacy Policy</a></span>
+		  <span class="footer-copy">&copy; {{ now.Year }} Polite Menu</span>
+		</div>
+	  </div>
+	</footer>
+</body>
+</html>

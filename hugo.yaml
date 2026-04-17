@@ -1,0 +1,11 @@
+baseURL: https://politemenu.ca
+languageCode: en-us
+title: "$1 per screen / first year"
+
+params:
+  description: "Digital signage for small businesses. Show your menu on any TV. Drag, drop, done."
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
