@@ -341,23 +341,12 @@ header {
 }
 
 .cta-btn {
-  display: inline-block;
-  background: var(--green);
-  color: var(--white);
-  font-family: var(--font);
   font-size: 0.9375rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   padding: 0.75rem 1.75rem;
   border-radius: var(--radius);
   text-decoration: none;
-}
-
-.cta-btn:visited { color: var(--white); }
-
-.cta-btn:hover {
-  background: var(--green-dark);
-  color: var(--white);
 }
 
 /*  Footer  */
