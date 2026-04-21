@@ -1,4 +1,6 @@
 ---
+layout: legal
+title: "The Story"
 ---
 
 <style>p {margin-top:1em}</style>
@@ -28,7 +30,7 @@ What if the store WiFi if down?
 Commercial displays and signage solve all these problems and more.
 But you'll not be surprised to know: commercial solutions cost _a lot_ more.
 And to add insult to injury, commercial display software is old, bloated, and complicated.
-It's ridiculous: we just want to show an image on a screen!
+It's ridiculous; we just want to show an image on a screen!
 
 That's why I created Polite Menu.
 It's ridiculously _easy_:
@@ -40,4 +42,4 @@ Screen rotation?
 Image scheduling?
 Offline mode?
 
-All handled. All included in the ridiculously low price.
+All handled. All included in the [ridiculously low price]({{< ref "pricing" >}}).

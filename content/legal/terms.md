@@ -1,5 +1,6 @@
 ---
 title: "Terms of Service"
+layout: legal
 ---
 # Polite Menu Terms of Service
 

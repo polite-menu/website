@@ -1,5 +1,6 @@
 ---
 title: "Privacy Policy"
+layout: legal
 ---
 # Polite Menu Privacy Policy
 

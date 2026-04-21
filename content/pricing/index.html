@@ -1,0 +1,464 @@
+---
+title: "Pricing"
+---
+<style>
+.calc-section {
+  padding: 4.5rem 0;
+  background: var(--bg);
+}
+
+.calc-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  max-width: 44rem;
+}
+
+.calc-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.calc-label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: 6.5rem;
+  flex-shrink: 0;
+}
+
+.screen-control {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  flex: 1;
+}
+
+.screen-count {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green);
+  min-width: 2.5rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.count-btn {
+  background: var(--green-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--green);
+  font-size: 1.25rem;
+  font-weight: 700;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  font-family: var(--font);
+  line-height: 1;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.count-btn:hover:not(:disabled) {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+
+.count-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+input[type="range"] {
+  flex: 1;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+
+.sbc-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sbc-btn {
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+}
+
+.sbc-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.sbc-btn.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+
+/* ── Breakdown ── */
+
+.breakdown {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.breakdown-title {
+  font-size: 0.8125rem;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.breakdown-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  font-size: 0.9375rem;
+  margin-bottom: 0.4rem;
+}
+
+.breakdown-row .desc { color: var(--text-muted); }
+
+.breakdown-row .amount {
+  color: var(--text);
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.breakdown-row.sub {
+  padding-left: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.breakdown-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0.875rem 0;
+}
+
+.breakdown-total {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.breakdown-total .label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.breakdown-total .total-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green);
+  text-align: right;
+}
+
+.breakdown-total.yr2 {
+  margin-top: 0.375rem;
+}
+
+.breakdown-total.yr2 .label {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.breakdown-total.yr2 .yr2-amount {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+p.price-info {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin: 1rem 0;
+  max-width: 44rem;
+}
+
+/* ── Notes ── */
+
+.pricing-notes {
+  padding: 4.5rem 0;
+  background: var(--green-light);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem 2rem;
+  max-width: 44rem;
+}
+
+.note-item {
+  display: flex;
+  gap: 0.625rem;
+  align-items: flex-start;
+}
+
+.note-check {
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.note-text {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.pricing-cta {
+  padding: 4.5rem 0;
+  background: var(--white);
+}
+
+@media (max-width: 42rem) {
+  .calc-card { padding: 1.5rem; }
+  .calc-row { flex-wrap: wrap; gap: 0.75rem; }
+  .calc-label { width: auto; }
+  .breakdown-total .total-amount { font-size: 1.75rem; }
+}
+</style>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Pricing</p>
+      <h1><em>$1</em> per screen / first year</h1>
+      <p class="hero-desc">
+		Low price &rarr; high value.
+		Polite Menu software is ultra-efficient.
+		That's how it does so much for so little.
+		Purchase the hardware you need, then try Polite Menu free for 30 days.
+      </p>
+    </div>
+  </section>
+
+  <section class="calc-section">
+    <div class="container">
+      <p class="section-label">Honest all-in Pricing</p>
+      <div class="calc-card">
+        <div class="calc-row">
+          <span class="calc-label">Screens</span>
+          <div class="screen-control">
+            <button class="count-btn" id="btn-dec" onclick="adjustScreens(-1)" aria-label="Decrease">&#x2212;</button>
+            <span class="screen-count" id="screen-display">1</span>
+            <button class="count-btn" id="btn-inc" onclick="adjustScreens(1)" aria-label="Increase">+</button>
+            <input type="range" id="screen-slider" min="1" max="20" value="1"
+                   aria-label="Number of screens"
+                   oninput="setScreens(parseInt(this.value))">
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <span class="calc-label">Hardware</span>
+          <div class="sbc-buttons">
+            <button class="sbc-btn active" onclick="setSBC('auto', this)">Auto</button>
+            <button class="sbc-btn" onclick="setSBC('pi5', this)">Pi 5</button>
+            <button class="sbc-btn" onclick="setSBC('pi-zero', this)">Pi Zero</button>
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <p class="breakdown-title">First Year Breakdown</p>
+
+          <div class="breakdown-row">
+            <span class="desc">Software &mdash; <span id="sw-desc"></span></span>
+            <span class="amount" id="sw-amount"></span>
+          </div>
+
+          <div id="hw-section"></div>
+
+          <div class="breakdown-row">
+            <span class="desc">microSD &mdash; <span id="sd-desc"></span></span>
+            <span class="amount" id="sd-amount"></span>
+          </div>
+
+          <div class="breakdown-row">
+            <span class="desc">HST (13%) &mdash; software &amp; cards</span>
+            <span class="amount" id="hst-amount"></span>
+          </div>
+
+          <hr class="breakdown-divider">
+
+          <div class="breakdown-total">
+            <span class="label">Total &mdash; first year</span>
+            <span class="total-amount" id="total-amount"></span>
+          </div>
+          <div class="breakdown-total yr2">
+            <span class="label">Total &mdash; year two+</span>
+            <span class="total-amount yr2-amount" id="yr2-amount"></span>
+          </div>
+        </div>
+      </div>
+	  <p class="price-info">
+	  Hardware prices shown include Ontario HST and shipping from PiShop.ca and Amazon.ca as of April, 2026. Hardware prices vary. Currently, Pi Zero 2 W availability is limited.
+	  </p>
+	</div>
+  </section>
+
+  <section class="pricing-notes">
+    <div class="container">
+      <p class="section-label">Amazing Value for every business</p>
+      <div class="notes-grid">
+        <div class="note-item">
+          <span class="note-check">&#x2713;</span>
+          <span class="note-text">Show multiple JPEG and PNG images per screen</span>
+        </div>
+        <div class="note-item">
+          <span class="note-check">&#x2713;</span>
+          <span class="note-text">Image scheduling by day and time&mdash;down to the minute</span>
+        </div>
+        <div class="note-item">
+          <span class="note-check">&#x2713;</span>
+          <span class="note-text">Works offline&mdash;not affected by internet outages</span>
+        </div>
+        <div class="note-item">
+          <span class="note-check">&#x2713;</span>
+          <span class="note-text">Multiple store locations</span>
+        </div>
+        <div class="note-item">
+          <span class="note-check">&#x2713;</span>
+          <span class="note-text">Vertical (portrait) display on any screen</span>
+        </div>
+        <div class="note-item">
+          <span class="note-check">&#x2713;</span>
+          <span class="note-text">Update screens remotely through a fast, simple web app</span>
+        </div>
+		<div class="note-item">
+          <span class="note-check">&#x2713;</span>
+          <span class="note-text">4k ultra high definition images</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <p class="section-label">Get Started</p>
+      <h2 class="cta-heading">Ready to try?</h2>
+      <p class="cta-desc">Currently available to businesses in Canada. Please contact us, and we'll get you set up.</p>
+      <a href="mailto:hello@polite.menu?subject=Polite%20Menu%20please" class="login-btn cta-btn">Contact Us</a>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var PI5_UNIT  = 124.84;
+  var ZERO_UNIT = 79.15;
+  var SD_EACH   = 10;
+
+  var screens = 1;
+  var sbc = 'auto';
+
+  function fmt(n) {
+    return '$' + n.toFixed(2);
+  }
+
+  function plural(n, word) {
+    return n + ' ' + word + (n !== 1 ? 's' : '');
+  }
+
+  function calcHW(n, mode) {
+    if (mode === 'pi5') {
+      var units = Math.ceil(n / 2);
+      return { pi5: units, zero: 0, cost: units * PI5_UNIT, sdCount: units };
+    }
+    if (mode === 'pi-zero') {
+      return { pi5: 0, zero: n, cost: n * ZERO_UNIT, sdCount: n };
+    }
+    // auto
+    var pi5  = Math.floor(n / 2);
+    var zero = n % 2;
+    return {
+      pi5: pi5,
+      zero: zero,
+      cost: pi5 * PI5_UNIT + zero * ZERO_UNIT,
+      sdCount: pi5 + zero
+    };
+  }
+
+  function renderHW(hw) {
+    var el = document.getElementById('hw-section');
+    var html = '';
+    if (hw.pi5 > 0 && hw.zero > 0) {
+      html  = '<div class="breakdown-row"><span class="desc">Hardware</span><span class="amount">' + fmt(hw.cost) + '</span></div>';
+      html += '<div class="breakdown-row sub"><span class="desc">' + plural(hw.pi5, 'Pi 5') + ' &times; $' + PI5_UNIT + '</span><span class="amount">' + fmt(hw.pi5 * PI5_UNIT) + '</span></div>';
+      html += '<div class="breakdown-row sub"><span class="desc">' + plural(hw.zero, 'Pi Zero') + ' &times; $' + ZERO_UNIT + '</span><span class="amount">' + fmt(hw.zero * ZERO_UNIT) + '</span></div>';
+    } else if (hw.pi5 > 0) {
+      html = '<div class="breakdown-row"><span class="desc">Hardware &mdash; ' + plural(hw.pi5, 'Pi 5') + ' &times; $' + PI5_UNIT + '</span><span class="amount">' + fmt(hw.cost) + '</span></div>';
+    } else {
+      html = '<div class="breakdown-row"><span class="desc">Hardware &mdash; ' + plural(hw.zero, 'Pi Zero') + ' &times; $' + ZERO_UNIT + '</span><span class="amount">' + fmt(hw.cost) + '</span></div>';
+    }
+    el.innerHTML = html;
+  }
+
+  function update() {
+    var n  = screens;
+    var hw = calcHW(n, sbc);
+    var swCost  = n;
+    var sdCost  = hw.sdCount * SD_EACH;
+    var hstCost = (swCost + sdCost) * 0.13;
+    var total   = swCost + hw.cost + sdCost + hstCost;
+
+    document.getElementById('screen-display').textContent = n;
+    document.getElementById('screen-slider').value = n;
+    document.getElementById('btn-dec').disabled = (n <= 1);
+    document.getElementById('btn-inc').disabled = (n >= 20);
+
+    document.getElementById('sw-desc').textContent   = plural(n, 'screen') + ' × $1';
+    document.getElementById('sw-amount').textContent = fmt(swCost);
+
+    renderHW(hw);
+
+    document.getElementById('sd-desc').textContent   = plural(hw.sdCount, 'card') + ' × $10';
+    document.getElementById('sd-amount').textContent = fmt(sdCost);
+    document.getElementById('hst-amount').textContent = fmt(hstCost);
+    document.getElementById('total-amount').textContent = fmt(total);
+    document.getElementById('yr2-amount').textContent = fmt(n * 2 * 1.13);
+  }
+
+  window.adjustScreens = function (delta) {
+    screens = Math.max(1, Math.min(20, screens + delta));
+    update();
+  };
+
+  window.setScreens = function (n) {
+    screens = Math.max(1, Math.min(20, n));
+    update();
+  };
+
+  window.setSBC = function (mode, btn) {
+    sbc = mode;
+    document.querySelectorAll('.sbc-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    update();
+  };
+
+  update();
+}());
+</script>
