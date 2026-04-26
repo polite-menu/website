@@ -1,0 +1,174 @@
+---
+title: "Hardware"
+description: "Shopping list — the exact hardware needed to run Polite Menu digital signage."
+---
+<style>
+.hw-section {
+  padding: 4.5rem 0;
+  background: var(--bg);
+}
+
+.hw-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1.5rem;
+}
+
+.hw-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.hw-card-header {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hw-card-header h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.hw-screens {
+  font-size: 0.8125rem;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hw-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hw-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.hw-item:visited { color: var(--text); }
+
+.hw-item:hover .hw-item-name { color: var(--green); }
+
+.hw-item-img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  display: block;
+  transition: transform 0.15s ease;
+}
+
+.hw-item:hover .hw-item-img { transform: scale(1.04); }
+
+.hw-item-name {
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  transition: color 0.1s;
+}
+
+@media (max-width: 42rem) {
+  .hw-section { padding: 3.5rem 0; }
+}
+</style>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Hardware</p>
+      <h1>Shopping <em>list</em></h1>
+      <p class="hero-desc">
+        Polite Menu runs on Raspberry Pi hardware available at
+        <a href="https://www.pishop.ca/" target="_blank" rel="noopener">PiShop.ca</a> and virtually everywhere that sells computer hardware.
+		Use the <a href="{{< ref "pricing" >}}">pricing calculator</a> to optimize cost-per-screen.
+      </p>
+    </div>
+  </section>
+
+  <section class="hw-section">
+    <div class="container">
+      <p class="section-label">What to buy</p>
+      <div class="hw-grid">
+
+        <div class="hw-card">
+          <div class="hw-card-header">
+            <h2>Raspberry Pi Zero 2 W</h2>
+            <p class="hw-screens">1 screen</p>
+          </div>
+          <div class="hw-items">
+
+            <a href="https://www.pishop.ca/product/raspberry-pi-zero-2-w/"
+               class="hw-item" target="_blank" rel="noopener">
+              <img class="hw-item-img" loading="lazy"
+                   src="/hardware/pi-zero-2w.avif"
+                   alt="Raspberry Pi Zero 2 W">
+              <span class="hw-item-name">Raspberry Pi Zero 2 W</span>
+            </a>
+
+            <a href="https://www.pishop.ca/product/wall-adapter-power-supply-5-25v-dc-2-4a-usb-micro-b/"
+               class="hw-item" target="_blank" rel="noopener">
+              <img class="hw-item-img" loading="lazy"
+                   src="/hardware/microusb-psu.avif"
+                   alt="MicroUSB Power Supply 5.1V DC 2.5A">
+              <span class="hw-item-name">MicroUSB Power Supply — 5.1V DC 2.5A</span>
+            </a>
+
+            <a href="https://www.pishop.ca/product/high-speed-hdmi-cable-a-to-mini-c-gold-plated-connectors-3ft/"
+               class="hw-item" target="_blank" rel="noopener">
+              <img class="hw-item-img" loading="lazy"
+                   src="/hardware/mini-hdmi-cable.avif"
+                   alt="Mini-HDMI to HDMI Cable">
+              <span class="hw-item-name">Mini-HDMI to HDMI Cable</span>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="hw-card">
+          <div class="hw-card-header">
+            <h2>Raspberry Pi 5</h2>
+            <p class="hw-screens">1 or 2 screens</p>
+          </div>
+          <div class="hw-items">
+
+            <a href="https://www.pishop.ca/product/raspberry-pi-5-1gb/"
+               class="hw-item" target="_blank" rel="noopener">
+              <img class="hw-item-img" loading="lazy"
+                   src="/hardware/pi5-1gb.avif"
+                   alt="Raspberry Pi 5 1GB">
+              <span class="hw-item-name">Raspberry Pi 5 — 1GB</span>
+            </a>
+
+            <a href="https://www.pishop.ca/product/raspberry-pi-27w-usb-c-power-supply-black-us/"
+               class="hw-item" target="_blank" rel="noopener">
+              <img class="hw-item-img" loading="lazy"
+                   src="/hardware/usbc-27w-psu.avif"
+                   alt="Raspberry Pi 27W USB-C Power Supply">
+              <span class="hw-item-name">27W USB-C Power Supply</span>
+            </a>
+
+            <a href="https://www.pishop.ca/product/micro-hdmi-to-hdmi-cable-for-pi-4-3ft-black/"
+               class="hw-item" target="_blank" rel="noopener">
+              <img class="hw-item-img" loading="lazy"
+                   src="/hardware/micro-hdmi-cable.avif"
+                   alt="Micro-HDMI to HDMI Cable">
+			  <span class="hw-item-name">Micro-HDMI to HDMI Cable (<b>&times;2</b>)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

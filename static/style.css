@@ -35,7 +35,7 @@
   --green-light:  light-dark(#EAF4EE, #16271D);
   --border:       light-dark(#C6DDD0, #2A3B31);
   --text:         light-dark(#181C18, #E8EDE8);
-  --text-muted:   light-dark(#5A6B5E, #9AAA9E);
+  --text-muted:   light-dark(#485C4C, #ADBDB3);
   --bg:           light-dark(#F7F9F7, #0F1410);
   --white:        light-dark(#FFFFFF, #181C18);
   --footer-bg:    light-dark(#181C18, #0A0C0A);
@@ -60,7 +60,7 @@ body {
   line-height: 1.65;
   font-size: 1rem;
 }
-a { color: var(--green); text-decoration: none; }
+a { color: var(--green); }
 a:visited { color: var(--green); }
 
 ul, ol {
