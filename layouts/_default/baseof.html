@@ -15,6 +15,8 @@
   <link rel="icon" href="/polite-menu-logo-128x128.png?v1">
   <link rel="manifest" href="/site.webmanifest">
 </head>
+{{ if not hugo.IsServer }}
+<script async src="https://cdn.usefathom.com/script.js" data-site="IMFVKXIV"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18123426132"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -22,6 +24,7 @@
   gtag('js', new Date());
   gtag('config', 'AW-18123426132');
 </script>
+{{ end }}
 <body>
 	<header>
 	  <div class="container header-inner">
